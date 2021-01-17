@@ -1,0 +1,37 @@
+a.nav-item.nav-link.active {
+  color: rgba(205,205,205)!important;
+  background-color: #343a40!important;
+  border-color: #343a40!important;
+}
+
+a.nav-item.nav-link {
+  color: rgba(205,205,205);
+}
+
+a.nav-item.nav-link:hover {
+  border: 1px solid #343a40;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid #343a40;
+}
+
+body {
+  background-color: #1F2226;
+  color: rgba(205,205,205);
+}
+
+.alert-dark {
+  color: rgba(205,205,205);
+  background-color: #343a40;
+  border-color: #343a40;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(205,205,205);
+}
+
+.btn-primary {
+  background-color: #00b06f;
+  border-color: #00b06f;
+};
