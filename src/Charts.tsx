@@ -18,14 +18,16 @@ const ChartModal = (props: {show: boolean; onHide: () => void; chart: string}) =
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <img
-          src={link}
-          alt={`Airport ground chart for the airport ${chart}`}
-          width="100%"
-        />
+        <a href={link}>
+          <img
+            src={link}
+            alt={`Airport ground chart for the airport ${chart}`}
+            width="100%"
+          />
+        </a>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={() => {window.open(link)}}>Open in New Tab</Button>
+        <Button variant="secondary" onClick={() => {window.open(link)}}>Open Image in New Tab</Button>
         <Button onClick={onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
