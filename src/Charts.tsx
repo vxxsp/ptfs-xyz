@@ -3,7 +3,7 @@ import { Alert, Button, Col, Container, Modal, Row } from "react-bootstrap";
 
 const ChartModal = (props: {show: boolean; onHide: () => void; chart: string}) => {
   const {show, onHide, chart} = props;
-  const link = `${chart} Ground Chart.png`
+  const link = `/charts/${chart} Ground Chart.png`
   return (
     <Modal
       show={show}
@@ -52,7 +52,7 @@ const Charts = () => {
         setModalShow(true);
       }}>
         <img 
-          src={`${code} Ground Chart.png`}
+          src={`/charts/${code} Ground Chart.png`}
           width="100%"
           alt={`Airport ground chart for the airport ${code}`}
         />
