@@ -18,8 +18,9 @@ class App extends React.Component {
         <Navbar bg="dark" variant="dark" sticky="top" expand="lg">
           <Container>
             <Navbar.Brand href="/"><img
-              src="/ptfs_logo_nav.png"
+              src="/ptfs_wordmark.svg"
               alt="PTFS Logo"
+              width="100px"
             /></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="mr-sm-2">
