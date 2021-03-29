@@ -13,21 +13,21 @@ class Home extends Component {
   render() {
 
     const PTFSCarousel = [
-      ['https://t7.rbxcdn.com/ae5c6fe3e68db7d7f11d05ecdddbb549', 'HMS Queen Elizibeth'],
-      ['https://t6.rbxcdn.com/4f77e374c7406d60cf2a4dc4a511ca14', 'Light aircraft on final aproach'],
-      ['https://t3.rbxcdn.com/3c193231b093768fcc426769f4548470', 'Fighter jet at night'],
-      ['https://t1.rbxcdn.com/a6ac22a9e9fa6bdab3ecfea4bd239565', 'Airliner in cruise'],
-      ['https://t1.rbxcdn.com/edec81d06a58ecc39d967b96b6402be5', 'Airliner during landing'],
-      ['https://t1.rbxcdn.com/8bdaa98ed59c5b827bfdd67071986977', 'Small airport on a mountain side'],
-      ['https://t7.rbxcdn.com/aa9586039d4f94237fc91b60713908ff', 'All in-game islands taken from above']
+      ['/carousel/ae5c6fe3e68db7d7f11d05ecdddbb549.png', 'HMS Queen Elizibeth'],
+      ['/carousel/4f77e374c7406d60cf2a4dc4a511ca14.png', 'Light aircraft on final aproach'],
+      ['/carousel/3c193231b093768fcc426769f4548470.png', 'Fighter jet at night'],
+      ['/carousel/a6ac22a9e9fa6bdab3ecfea4bd239565.png', 'Airliner in cruise'],
+      ['/carousel/edec81d06a58ecc39d967b96b6402be5.png', 'Airliner during landing'],
+      ['/carousel/8bdaa98ed59c5b827bfdd67071986977.png', 'Small airport on a mountain side'],
+      ['/carousel/aa9586039d4f94237fc91b60713908ff.png', 'All in-game islands taken from above']
     ];
 
     const PTRSCarousel = [
-      ['https://t7.rbxcdn.com/d535bfe5adfdc6d340881dfc3da4decb', 'Helicopter landing on an oil rig'],
-      ['https://t6.rbxcdn.com/09e4a1bdf6883d765c491c7ea495a684', 'Sall raft at the base of an oil rig'],
-      ['https://t2.rbxcdn.com/93686946c969efd0ce52a9bd6e5aa47d', 'Large rescue ship at port'],
-      ['https://t2.rbxcdn.com/1e557f9ee7b54326276f948d0654e0e9', 'Helicoptor crash site'],
-      ['https://t0.rbxcdn.com/1cdc53384fc680393db225a645090a51', 'Sail-boat with a broken sail']
+      ['/carousel/d535bfe5adfdc6d340881dfc3da4decb.png', 'Helicopter landing on an oil rig'],
+      ['/carousel/6bf8191341a7013c52c3550cb4dee88f.png', 'Small raft at the base of an oil rig'],
+      ['/carousel/b84a1c252c7bd2608dde2fb4177f6840.png', 'Large rescue ship at port'],
+      ['/carousel/1e557f9ee7b54326276f948d0654e0e9.png', 'Helicoptor crash site'],
+      ['/carousel/3f026a827ef420cedf0f21e3f42bb1ee.png', 'Sail-boat with a broken sail']
     ];
 
     const GameTab = ({name, description, id, carousel}: {
