@@ -24,7 +24,7 @@ const Charts = () =>{
         showModal();
       }}>
         <img 
-          src={`/charts/${code} Ground Chart.png`}
+          src={`/charts/preview/${code} Ground Chart.png`}
           width="100%"
           alt={`Airport ground chart for the airport ${code}`}
         />
