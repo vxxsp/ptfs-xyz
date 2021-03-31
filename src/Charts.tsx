@@ -94,7 +94,6 @@ const Charts = () =>{
           <Button onClick={() => {nextChart(false)}}>&lt;</Button>
           <Button onClick={() => {nextChart(true)}}>&gt;</Button>
           <Button variant="secondary" onClick={() => {window.open("link")}}>Open Image in New Tab</Button>
-          <Button onClick={() => {setModalShow(false)}}>Close</Button>
         </Modal.Footer>
       </Modal>
     </>
