@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Alert, Button, Col, Container, Modal, Row } from "react-bootstrap";
 
-const Charts = () => {
-  const [modalShow, setModalShow] = useState(false);
-  const [lastChart, setChart] = useState("");
-  let [modalFirst, setModalFirst] = useState(true);
-  
+const Charts = () =>{
+  const [ModalShow, setModalShow] = useState(false);
+  const closeModal = () => setModalShow(false);
+  const showModal = () => setModalShow(true);
+  const [chart, setChart] = useState("");
+
   const codes = [
     'BIGK', 'KBLT', 'KGAR',
     'KMLR', 'KRFD', 'KTRC',
@@ -15,60 +16,11 @@ const Charts = () => {
     'TFFU', 'YPLK', 'YPPH'
   ];
 
-  const nextChart = (next: boolean) => {
-    setModalFirst(false);
-    const index = codes.indexOf(lastChart);
-    const nextPoint = next ? index + 1 : index - 1;
-
-    if (nextPoint >= 0 && nextPoint < codes.length)
-      setChart(codes[nextPoint]);
-  };
-  
-  const ChartModal = (props: {show: boolean; onHide: () => void; chart: string, doAnimation:boolean}) => {
-    // const [rotated, setRotate] = useState(false);
-    const {show, onHide, chart, doAnimation} = props;
-    const link = `/charts/${chart} Ground Chart.png`
-    return (
-      <Modal
-        show={show}
-        onHide={onHide}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-        animation={doAnimation}
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            {chart}
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <a href={link}>
-            <img
-              src={link}
-              alt={`Airport ground chart for the airport ${chart}`}
-              width="100%"
-              // style={rotated ? {transform: "rotate(90deg)"} : undefined}
-            />
-          </a>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={() => {nextChart(false)}}>&lt;</Button>
-          {/* <Button onClick={() => {setRotate(!rotated)}}>⟳</Button> */}
-          <Button onClick={() => {nextChart(true)}}>&gt;</Button>
-          <Button variant="secondary" onClick={() => {window.open(link)}}>Open Image in New Tab</Button>
-          <Button onClick={onHide}>Close</Button>
-        </Modal.Footer>
-      </Modal>
-    );
-  };
-
   const cols = codes.map((code) =>
-    <Col>
+    <Col key={code}>
       <a href="#/" onClick={() => {
         setChart(code);
-        setModalShow(true);
-        setModalFirst(true);
+        showModal();
       }}>
         <img 
           src={`/charts/${code} Ground Chart.png`}
@@ -96,6 +48,13 @@ const Charts = () => {
     return rows;
   };
 
+  const nextChart = (next: boolean) => {
+    const index = codes.indexOf(chart);
+    const newIndex = index + (next ? 1 : -1);
+    if (newIndex >= 0 && newIndex < codes.length)
+      setChart(codes[newIndex]);
+  };
+
   return (
     <>
       <Container>
@@ -111,15 +70,35 @@ const Charts = () => {
         {genRows()}
       </Container>
 
-      <ChartModal 
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-        chart={lastChart}
-        doAnimation={modalFirst}
-      />
+      <Modal
+        show={ModalShow}
+        onHide={closeModal}
+        size="lg"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>{chart}</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body>
+          <a href={`/charts/${chart} Ground Chart.png`}>
+            <img
+              src={`/charts/${chart} Ground Chart.png`}
+              alt={`Airport ground chart for the airport ${chart}`}
+              width="100%"
+            />
+          </a>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button onClick={() => {nextChart(false)}}>&lt;</Button>
+          <Button onClick={() => {nextChart(true)}}>&gt;</Button>
+          <Button variant="secondary" onClick={() => {window.open("link")}}>Open Image in New Tab</Button>
+          <Button onClick={() => {setModalShow(false)}}>Close</Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 };
-
 
 export { Charts };
