@@ -79,8 +79,8 @@ const Charts = () =>{
         <Alert variant="dark">
           <h4>These charts are not released yet!</h4>
           <p>This is just a beta preview of the charts for feedback. Please message
-            HotDog#6400 on Discord if you have any feedback or notice any mistakes
-            on these charts. Thank you.</p>
+          HotDog#6400 on Discord if you have any feedback or notice any mistakes
+          on these charts. Thank you.</p>
           <hr />
           The taxiway lettering not matching the ones in game is not a mistake,
           it's a proposal.
