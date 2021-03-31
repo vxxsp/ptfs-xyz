@@ -59,13 +59,8 @@ class Home extends Component {
             <p>
               {description}
             </p>
-            <Button block>
-              <a
-                href={`https://www.roblox.com/games/${id}`}
-                style={{ color: 'white' }}
-              >
-                Play {name} on Roblox!
-              </a>
+            <Button href={`https://www.roblox.com/games/${id}`} block>
+              Play {name} on Roblox!
             </Button>
           </Col>
         </Row>
