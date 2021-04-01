@@ -9,3 +9,13 @@
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
+
+.thumbnail {
+  cursor: pointer;
+  transition: all 0.08s linear;
+  outline: 0px solid;
+}
+
+.thumbnail:hover {
+  outline: 5px solid rgb(155, 155, 155);
+}

@@ -64,19 +64,16 @@ const Charts = () => {
         </Alert>
         <div className="chart-grid">
           {codes.map((code) => (
-            <a
-              href="#/"
+            <img
+              className="thumbnail"
+              src={`/charts/preview/${code} Ground Chart.png`}
+              width="100%"
+              alt={`Airport ground chart for the airport ${code}`}
               onClick={() => {
                 setChart(code);
                 showModal();
               }}
-            >
-              <img
-                src={`/charts/preview/${code} Ground Chart.png`}
-                width="100%"
-                alt={`Airport ground chart for the airport ${code}`}
-              />
-            </a>
+            />
           ))}
         </div>
       </Container>
