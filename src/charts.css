@@ -1,0 +1,11 @@
+@media (orientation: portrait) {
+  .hide-on-portrait {
+    display: none;
+  }
+}
+
+.chart-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
