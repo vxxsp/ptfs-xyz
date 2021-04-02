@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Alert, Button, Container, Modal } from 'react-bootstrap';
+import { Alert, Button, Modal } from 'react-bootstrap';
 import { ButtonTooltip } from './components/ButtonTooltip';
 import './charts.css';
 
@@ -50,37 +50,32 @@ const Charts = () => {
 
   return (
     <>
-      <Container>
+      <div className="margined">
         <Alert variant="dark">
-          <h4>These charts are not released yet!</h4>
-          <p>
-            This is just a beta preview of the charts for feedback. Please
-            message HotDog#6400 on Discord if you have any feedback or notice
-            any mistakes on these charts. Thank you.
-          </p>
+          <h3>These charts are not released yet!</h3>
+          This is just a beta preview of the charts for feedback. Please message
+          HotDog#6400 on Discord if you have any feedback or notice any mistakes
+          on these charts. Thank you.
           <hr />
           The taxiway lettering not matching the ones in game is not a mistake,
           it's a proposal.
         </Alert>
-        <div className="chart-grid">
-          {codes.map((code) => (
-            <img
-              className="thumbnail"
-              src={`/charts/preview/${code} Ground Chart.png`}
-              width="100%"
-              alt={`Airport ground chart for the airport ${code}`}
-              onClick={() => {
-                setChart(code);
-                showModal();
-              }}
-            />
-          ))}
-        </div>
-      </Container>
+      </div>
+      <div className="chart-grid margined">
+        {codes.map((code) => (
+          <img
+            className="thumbnail"
+            src={`/charts/preview/${code} Ground Chart.png`}
+            width="100%"
+            alt={`Airport ground chart for the airport ${code}`}
+            onClick={() => {
+              setChart(code);
+              showModal();
+            }}
+          />
+        ))}
+      </div>
       <Modal show={ModalShow} onHide={closeModal} size="lg" centered>
-        <Modal.Header closeButton>
-          <Modal.Title>{chart}</Modal.Title>
-        </Modal.Header>
         <Modal.Body>
           <a href={`/charts/${chart} Ground Chart.png`}>
             <img
@@ -104,7 +99,10 @@ const Charts = () => {
           />
           <ButtonTooltip onClick={pChart} text=">" tooltip="Next Chart" />
           <Button variant="secondary" onClick={openChart}>
-            Open Image in New Tab
+            Open in New Tab
+          </Button>
+          <Button variant="danger" onClick={closeModal}>
+            Close
           </Button>
         </Modal.Footer>
       </Modal>
