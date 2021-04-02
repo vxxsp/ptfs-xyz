@@ -10,12 +10,21 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
+.margined {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
 .thumbnail {
   cursor: pointer;
-  transition: all 0.08s linear;
   outline: 0px solid;
+  transition: all 0.08s linear;
 }
 
 .thumbnail:hover {
   outline: 5px solid rgb(155, 155, 155);
+}
+
+.popup {
+  display: none;
 }
