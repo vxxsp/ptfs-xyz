@@ -57,8 +57,8 @@ const Charts = () => {
           HotDog#6400 on Discord if you have any feedback or notice any mistakes
           on these charts. Thank you.
           <hr />
-          The taxiway lettering not matching the ones in game is not a mistake,
-          it's a proposal.
+          The taxiway lettering not matching the ones in game is not a mistake;
+          Orange will change the layout in game to match these ones.
         </Alert>
       </div>
       <div className="chart-grid margined">
@@ -87,7 +87,7 @@ const Charts = () => {
           </a>
         </Modal.Body>
         <Modal.Footer>
-          <ButtonTooltip onClick={nChart} text="<" tooltip="Previous Chart" />
+          <ButtonTooltip onClick={pChart} text="<" tooltip="Previous Chart" />
           <ButtonTooltip
             onClick={() => {
               rotate(!rotated);
@@ -97,12 +97,10 @@ const Charts = () => {
             nodelay
             className="hide-on-portrait"
           />
-          <ButtonTooltip onClick={pChart} text=">" tooltip="Next Chart" />
+          <ButtonTooltip onClick={nChart} text=">" tooltip="Next Chart" />
           <Button variant="secondary" onClick={openChart}>
             Open in New Tab
           </Button>
-          <ButtonTooltip onClick={pChart} text="<" tooltip="Previous Chart" />
-          <ButtonTooltip onClick={nChart} text=">" tooltip="Next Chart" />
           <Button variant="danger" onClick={closeModal}>
             Close
           </Button>
