@@ -101,6 +101,8 @@ const Charts = () => {
           <Button variant="secondary" onClick={openChart}>
             Open in New Tab
           </Button>
+          <ButtonTooltip onClick={pChart} text="<" tooltip="Previous Chart" />
+          <ButtonTooltip onClick={nChart} text=">" tooltip="Next Chart" />
           <Button variant="danger" onClick={closeModal}>
             Close
           </Button>
