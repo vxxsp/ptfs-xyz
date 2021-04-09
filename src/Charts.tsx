@@ -52,7 +52,8 @@ const Charts = () => {
     <>
       <div className="margined">
         <Alert variant="dark">
-          <h3>These charts are not released yet!</h3>
+          <h3>These charts are not yet released!</h3>
+          <h5>So don't use these for ATC 24 (yet)</h5>
           This is just a beta preview of the charts for feedback. Please message
           HotDog#6400 on Discord if you have any feedback or notice any mistakes
           on these charts. Thank you.
