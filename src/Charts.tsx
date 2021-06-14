@@ -80,7 +80,7 @@ const Charts = () => {
         <Modal.Body>
           <a href={`/charts/${chart} Ground Chart.png`}>
             <img
-              src={`/charts/${chart} Ground Chart.png`}
+              src={`/charts/preview/${chart} Ground Chart.png`}
               alt={`Airport ground chart for the airport ${chart}`}
               width="100%"
               style={{ transform: rotated ? 'rotate(90deg)' : undefined }}
