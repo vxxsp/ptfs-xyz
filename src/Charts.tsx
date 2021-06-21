@@ -12,6 +12,7 @@ const Charts = () => {
 
   const codes = [
     'BIGK',
+    'EGHI',
     'KBLT',
     'KGAR',
     'KMLR',
