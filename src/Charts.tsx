@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Alert, Button, Modal } from 'react-bootstrap';
 import { ButtonTooltip } from './components/ButtonTooltip';
+import Island from './Island';
+import islands from './islands.json';
 import './charts.css';
 
 const Charts = () => {
@@ -10,37 +12,24 @@ const Charts = () => {
   const [rotated, rotate] = useState(false);
   const [chart, setChart] = useState('');
 
-  const codes = [
-    'BIGK',
-    'EGHI',
-    'KBLT',
-    'KGAR',
-    'KMLR',
-    'KRFD',
-    'KTRC',
-    'LCHS',
-    'LCLK',
-    'LCPH',
-    'LCPR',
-    'LGSK',
-    'LJIO',
-    'LJNF',
-    'LJSC',
-    'TFFJ',
-    'TFFU',
-    'YPLK',
-    'YPPH',
-  ];
+  const filteredIslands = (islands as Island[]).filter(
+    (island) => island.Airports.filter((airport) => airport.ICAO).length
+  );
+
+  const charts = filteredIslands
+    .map((island) => island.Airports)
+    .flat()
+    .map((airport) => airport.ICAO) as string[];
 
   const nChart = (next = true) => {
-    const index = codes.indexOf(chart);
-    const length = codes.length;
+    const index = charts.indexOf(chart);
+    const length = charts.length;
     let newIndex = index + (next ? 1 : -1);
 
     if (newIndex < 0) newIndex = length - 1;
     else if (newIndex >= length) newIndex = 0;
 
-    setChart(codes[newIndex]);
+    setChart(charts[newIndex]);
   };
 
   const pChart = () => nChart(false);
@@ -63,18 +52,30 @@ const Charts = () => {
           Orange will change the layout in game to match these ones.
         </Alert>
       </div>
-      <div className="chart-grid margined">
-        {codes.map((code) => (
-          <img
-            className="thumbnail"
-            src={`/charts/preview/${code} Ground Chart.png`}
-            width="100%"
-            alt={`Airport ground chart for the airport ${code}`}
-            onClick={() => {
-              setChart(code);
-              showModal();
-            }}
-          />
+      <div className="margined">
+        {filteredIslands.map((island) => (
+          <div key={island.Name}>
+            <h3>{island.Name}</h3>
+            <div className="chart-grid">
+              {island.Airports.map((airport) => (
+                <div key={airport.ICAO}>
+                  <h6 style={{ display: 'inline' }}>{airport.ICAO}</h6>
+                  <h4 style={{ display: 'inline' }}> {airport.Name}</h4>
+                  <img
+                    className="thumbnail"
+                    src={`/charts/preview/${airport.ICAO} Ground Chart.png`}
+                    width="100%"
+                    alt={`Airport ground chart for the airport ${airport.ICAO}`}
+                    onClick={() => {
+                      setChart(airport.ICAO as string);
+                      showModal();
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+            <br />
+          </div>
         ))}
       </div>
       <Modal show={ModalShow} onHide={closeModal} size="lg" centered>
