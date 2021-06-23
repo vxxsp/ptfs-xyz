@@ -1,0 +1,280 @@
+# Use an online compiler to convert this into JSON and paste into ./islands.json
+- Name: Cyprus
+  Airports:
+    - Name: Barra Airport
+      Island: Cyprus
+      City: Barra
+      ICAO: IBAR
+      IATA: BRR
+      Stud Coords: '35640, 19619'
+      Geo Coords: N41 38.0  E000 10.8
+      Runways: []
+
+    - Name: Henstridge Airfield
+      Island: Cyprus
+      City: Henstridge
+      ICAO: IHEN
+      IATA: HEN
+      Stud Coords: 25320, 23230
+      Geo Coords: N41 37.0  E000 07.6
+      Runways:
+        - Name: 35/17
+          Headings: 352/172
+          Studs: 637
+          Feet: 1170
+
+    - Name: Larnaca Intl
+      Island: Cyprus
+      City: Larnaca
+      ICAO: ILAR
+      IATA: LCA
+      Stud Coords: '29215, 14768'
+      Geo Coords: N41 39.5  E000 08.8
+      Runways:
+        - Name: 24/06
+          Headings: 244/64
+          Studs: 1826
+          Feet: 3355
+
+    - Name: Paphos Intl
+      Island: Cyprus
+      City: Paphos
+      ICAO: IPAP
+      IATA: PFO
+      Stud Coords: '40104, 15532'
+      Geo Coords: N41 39.3  E000 12.1
+      Runways:
+        - Name: 35/17
+          Headings: 354/174
+          Studs: 1853
+          Feet: 3404
+
+- Name: Grindavik
+  Airports:
+    - Name: Grindavik Airport
+      Island: Grindavik
+      City: Grindavik
+      ICAO: IGRV
+      IATA: GVK
+      Stud Coords: '-35259, -20503'
+      Geo Coords: N41 50.2  W000 10.6
+      Runways:
+        - Name: 24/06
+          Headings: 242/62
+          Studs: 1302
+          Feet: 2392
+
+- Name: HMS Queen Elizabeth
+  Airports:
+    - Name: HMS Queen Elizabeth
+      Island: HMS Queen Elizabeth
+      City: null
+      ICAO: null
+      IATA: null
+      Stud Coords: '5996, -2322'
+      Geo Coords: N41 44.7  E000 01.8
+      Runways:
+        - Name: 27/09
+          Headings: 268/88
+
+- Name: Izolirani
+  Airports:
+    - Name: Al Najaf
+      Island: Izolirani
+      City: Najaf
+      ICAO: IJAF
+      IATA: NJF
+      Stud Coords: 54247, -17923
+      Geo Coords: N41 49.4  E000 16.4
+      Runways:
+        - Name: 25/07
+          Headings: 251/71
+          Studs: 1240
+          Feet: 2278
+
+    - Name: Izolirani Intl
+      Island: Izolirani
+      City: Izolirani
+      ICAO: IZOL
+      IATA: IZO
+      Stud Coords: '53353, -13666'
+      Geo Coords: N41 48.1  E000 16.1
+      Runways:
+        - Name: 28/10
+          Headings: 286/106
+          Studs: 2318
+          Feet: 4375
+
+    - Name: RAF Scampton
+      Island: Izolirani
+      City: Scampton
+      ICAO: ISCM
+      IATA: SCT
+      Stud Coords: '44019, -23408'
+      Geo Coords: N41 51.1  E000 13.3
+      Runways:
+        - Name: 31/13
+          Headings: 306/126
+          Studs: 986
+          Feet: 1812
+
+- Name: Perth
+  Airports:
+    - Name: Lukla Airport
+      Island: Perth
+      City: Lukla
+      ICAO: ILKL
+      IATA: LUA
+      Stud Coords: '30520, -34534'
+      Geo Coords: N41 54.4  E000 09.2
+      Runways:
+        - Name: 27/09
+          Headings: 269/89
+          Studs: 709
+          Feet: 1303
+
+    - Name: Perth Intl
+      Island: Perth
+      City: Perth
+      ICAO: IPPH
+      IATA: PER
+      Stud Coords: '25541, -38719'
+      Geo Coords: N41 55.7  E000 07.7
+      Runways:
+        - Name: 33/15
+          Headings: 331/151
+          Studs: 1791
+          Feet: 3355
+        - Name: 29/11
+          Headings: 291/111
+          Studs: 2381
+          Feet: 4375
+
+- Name: Rockford
+  Airports:
+    - Name: Air Base Garry
+      Island: Rockford
+      City: Rockford
+      ICAO: IGAR
+      IATA: ABG
+      Stud Coords: '-6520, -2130'
+      Geo Coords: N41 44.6  W000 02.0
+      Runways:
+        - Name: 19/01
+          Headings: 187/07
+          Studs: 1131
+          Feet: 2078
+
+    - Name: Boltic Airfield
+      Island: Rockford
+      City: Boltic
+      ICAO: IBLT
+      IATA: BOL
+      Stud Coords: '-3024, -2566'
+      Geo Coords: N41 44.8  W000 00.9
+      Runways:
+        - Name: 33/15
+          Headings: 334/154
+          Studs: 270
+          Feet: 496
+
+    - Name: Greater Rockford
+      Island: Rockford
+      City: Rockford
+      ICAO: IRFD
+      IATA: RFD
+      Stud Coords: '-4798, 2225'
+      Geo Coords: N41 43.3  W000 01.4
+      Runways:
+        - Name: 36L/18R
+          Headings: 360/180
+          Studs: 1925
+          Feet: 3535
+        - Name: 36R/18L
+          Headings: 181/361
+          Studs: 1634
+          Feet: 3000
+
+    - Name: Mellor Intl
+      Island: Rockford
+      City: Mellor
+      ICAO: IMLR
+      IATA: MLR
+      Stud Coords: '-334, 2312'
+      Geo Coords: N41 43.3  W000 00.1
+      Runways:
+        - Name: 29/11
+          Headings: 110/290
+          Studs: 1631
+          Feet: 2997
+
+    - Name: Training Centre
+      Island: Rockford
+      City: Carrigknock
+      ICAO: ITRC
+      IATA: TRN
+      Stud Coords: 853, 9293
+      Geo Coords: N41 41.2  E000 00.3
+      Runways:
+        - Name: 36/18
+          Headings: 360/180
+          Studs: 700
+          Feet: 1286
+
+- Name: Saint Barthelemy
+  Airports:
+    - Name: Saint Barthelemy
+      Island: Saint Barthelemy
+      City: Aeroport
+      ICAO: IBTH
+      IATA: SBH
+      Stud Coords: '13773, -22400'
+      Geo Coords: N41 50.8  E000 04.2
+      Runways:
+        - Name: 27/09
+          Headings: 270/90
+          Studs: 842
+          Feet: 1547
+
+    - Name: UFO Base
+      Island: Saint Barthelemy
+      City: Vitet
+      ICAO: IUFO
+      IATA: UFO
+      Stud Coords: '17001, -22569'
+      Geo Coords: N41 50.8  E000 05.1
+      Runways:
+        - Name: 26/08
+          Headings: 256/76
+          Studs: 300
+          Feet: 551
+
+- Name: Sauthamptona
+  Airports:
+    - Name: Sauthamptona Airport
+      Island: Sauthamptona
+      City: Sauthamptona
+      ICAO: ISAU
+      IATA: SAU
+      Stud Coords: '-38167, 9725'
+      Geo Coords: N41 41.0  W000 11.5
+      Runways:
+        - Name: 26/08
+          Headings: 261/81
+          Studs: 1390
+          Feet: 2554
+
+- Name: Skopelos
+  Airports:
+    - Name: Skopelos Airfield
+      Island: Skopelos
+      City: Chora
+      ICAO: ISKP
+      IATA: SKO
+      Stud Coords: 33640, -4904
+      Geo Coords: N41 45.5  E000 10.2
+      Runways:
+        - Name: 23/05
+          Headings: 231/51
+          Studs: 346
+          Feet: 636

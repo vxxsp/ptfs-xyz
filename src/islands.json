@@ -1,0 +1,390 @@
+[
+  {
+    "Airports": [
+      {
+        "City": "Barra",
+        "ICAO": "IBAR",
+        "Name": "Barra Airport",
+        "Island": "Cyprus",
+        "IATA": "BRR",
+        "Stud Coords": "35640, 19619",
+        "Runways": [],
+        "Geo Coords": "N41 38.0  E000 10.8"
+      },
+      {
+        "City": "Henstridge",
+        "ICAO": "IHEN",
+        "Name": "Henstridge Airfield",
+        "Island": "Cyprus",
+        "IATA": "HEN",
+        "Stud Coords": "25320, 23230",
+        "Runways": [
+          {
+            "Studs": 637,
+            "Feet": 1170,
+            "Name": "35/17",
+            "Headings": "352/172"
+          }
+        ],
+        "Geo Coords": "N41 37.0  E000 07.6"
+      },
+      {
+        "City": "Larnaca",
+        "ICAO": "ILAR",
+        "Name": "Larnaca Intl",
+        "Island": "Cyprus",
+        "IATA": "LCA",
+        "Stud Coords": "29215, 14768",
+        "Runways": [
+          {
+            "Studs": 1826,
+            "Feet": 3355,
+            "Name": "24/06",
+            "Headings": "244/64"
+          }
+        ],
+        "Geo Coords": "N41 39.5  E000 08.8"
+      },
+      {
+        "City": "Paphos",
+        "ICAO": "IPAP",
+        "Name": "Paphos Intl",
+        "Island": "Cyprus",
+        "IATA": "PFO",
+        "Stud Coords": "40104, 15532",
+        "Runways": [
+          {
+            "Studs": 1853,
+            "Feet": 3404,
+            "Name": "35/17",
+            "Headings": "354/174"
+          }
+        ],
+        "Geo Coords": "N41 39.3  E000 12.1"
+      }
+    ],
+    "Name": "Cyprus"
+  },
+  {
+    "Airports": [
+      {
+        "City": "Grindavik",
+        "ICAO": "IGRV",
+        "Name": "Grindavik Airport",
+        "Island": "Grindavik",
+        "IATA": "GVK",
+        "Stud Coords": "-35259, -20503",
+        "Runways": [
+          {
+            "Studs": 1302,
+            "Feet": 2392,
+            "Name": "24/06",
+            "Headings": "242/62"
+          }
+        ],
+        "Geo Coords": "N41 50.2  W000 10.6"
+      }
+    ],
+    "Name": "Grindavik"
+  },
+  {
+    "Airports": [
+      {
+        "City": null,
+        "ICAO": null,
+        "Name": "HMS Queen Elizabeth",
+        "Island": "HMS Queen Elizabeth",
+        "IATA": null,
+        "Stud Coords": "5996, -2322",
+        "Runways": [
+          {
+            "Name": "27/09",
+            "Headings": "268/88"
+          }
+        ],
+        "Geo Coords": "N41 44.7  E000 01.8"
+      }
+    ],
+    "Name": "HMS Queen Elizabeth"
+  },
+  {
+    "Airports": [
+      {
+        "City": "Najaf",
+        "ICAO": "IJAF",
+        "Name": "Al Najaf",
+        "Island": "Izolirani",
+        "IATA": "NJF",
+        "Stud Coords": "54247, -17923",
+        "Runways": [
+          {
+            "Studs": 1240,
+            "Feet": 2278,
+            "Name": "25/07",
+            "Headings": "251/71"
+          }
+        ],
+        "Geo Coords": "N41 49.4  E000 16.4"
+      },
+      {
+        "City": "Izolirani",
+        "ICAO": "IZOL",
+        "Name": "Izolirani Intl",
+        "Island": "Izolirani",
+        "IATA": "IZO",
+        "Stud Coords": "53353, -13666",
+        "Runways": [
+          {
+            "Studs": 2318,
+            "Feet": 4375,
+            "Name": "28/10",
+            "Headings": "286/106"
+          }
+        ],
+        "Geo Coords": "N41 48.1  E000 16.1"
+      },
+      {
+        "City": "Scampton",
+        "ICAO": "ISCM",
+        "Name": "RAF Scampton",
+        "Island": "Izolirani",
+        "IATA": "SCT",
+        "Stud Coords": "44019, -23408",
+        "Runways": [
+          {
+            "Studs": 986,
+            "Feet": 1812,
+            "Name": "31/13",
+            "Headings": "306/126"
+          }
+        ],
+        "Geo Coords": "N41 51.1  E000 13.3"
+      }
+    ],
+    "Name": "Izolirani"
+  },
+  {
+    "Airports": [
+      {
+        "City": "Lukla",
+        "ICAO": "ILKL",
+        "Name": "Lukla Airport",
+        "Island": "Perth",
+        "IATA": "LUA",
+        "Stud Coords": "30520, -34534",
+        "Runways": [
+          {
+            "Studs": 709,
+            "Feet": 1303,
+            "Name": "27/09",
+            "Headings": "269/89"
+          }
+        ],
+        "Geo Coords": "N41 54.4  E000 09.2"
+      },
+      {
+        "City": "Perth",
+        "ICAO": "IPPH",
+        "Name": "Perth Intl",
+        "Island": "Perth",
+        "IATA": "PER",
+        "Stud Coords": "25541, -38719",
+        "Runways": [
+          {
+            "Studs": 1791,
+            "Feet": 3355,
+            "Name": "33/15",
+            "Headings": "331/151"
+          },
+          {
+            "Studs": 2381,
+            "Feet": 4375,
+            "Name": "29/11",
+            "Headings": "291/111"
+          }
+        ],
+        "Geo Coords": "N41 55.7  E000 07.7"
+      }
+    ],
+    "Name": "Perth"
+  },
+  {
+    "Airports": [
+      {
+        "City": "Rockford",
+        "ICAO": "IGAR",
+        "Name": "Air Base Garry",
+        "Island": "Rockford",
+        "IATA": "ABG",
+        "Stud Coords": "-6520, -2130",
+        "Runways": [
+          {
+            "Studs": 1131,
+            "Feet": 2078,
+            "Name": "19/01",
+            "Headings": "187/07"
+          }
+        ],
+        "Geo Coords": "N41 44.6  W000 02.0"
+      },
+      {
+        "City": "Boltic",
+        "ICAO": "IBLT",
+        "Name": "Boltic Airfield",
+        "Island": "Rockford",
+        "IATA": "BOL",
+        "Stud Coords": "-3024, -2566",
+        "Runways": [
+          {
+            "Studs": 270,
+            "Feet": 496,
+            "Name": "33/15",
+            "Headings": "334/154"
+          }
+        ],
+        "Geo Coords": "N41 44.8  W000 00.9"
+      },
+      {
+        "City": "Rockford",
+        "ICAO": "IRFD",
+        "Name": "Greater Rockford",
+        "Island": "Rockford",
+        "IATA": "RFD",
+        "Stud Coords": "-4798, 2225",
+        "Runways": [
+          {
+            "Studs": 1925,
+            "Feet": 3535,
+            "Name": "36L/18R",
+            "Headings": "360/180"
+          },
+          {
+            "Studs": 1634,
+            "Feet": 3000,
+            "Name": "36R/18L",
+            "Headings": "181/361"
+          }
+        ],
+        "Geo Coords": "N41 43.3  W000 01.4"
+      },
+      {
+        "City": "Mellor",
+        "ICAO": "IMLR",
+        "Name": "Mellor Intl",
+        "Island": "Rockford",
+        "IATA": "MLR",
+        "Stud Coords": "-334, 2312",
+        "Runways": [
+          {
+            "Studs": 1631,
+            "Feet": 2997,
+            "Name": "29/11",
+            "Headings": "110/290"
+          }
+        ],
+        "Geo Coords": "N41 43.3  W000 00.1"
+      },
+      {
+        "City": "Carrigknock",
+        "ICAO": "ITRC",
+        "Name": "Training Centre",
+        "Island": "Rockford",
+        "IATA": "TRN",
+        "Stud Coords": "853, 9293",
+        "Runways": [
+          {
+            "Studs": 700,
+            "Feet": 1286,
+            "Name": "36/18",
+            "Headings": "360/180"
+          }
+        ],
+        "Geo Coords": "N41 41.2  E000 00.3"
+      }
+    ],
+    "Name": "Rockford"
+  },
+  {
+    "Airports": [
+      {
+        "City": "Aeroport",
+        "ICAO": "IBTH",
+        "Name": "Saint Barthelemy",
+        "Island": "Saint Barthelemy",
+        "IATA": "SBH",
+        "Stud Coords": "13773, -22400",
+        "Runways": [
+          {
+            "Studs": 842,
+            "Feet": 1547,
+            "Name": "27/09",
+            "Headings": "270/90"
+          }
+        ],
+        "Geo Coords": "N41 50.8  E000 04.2"
+      },
+      {
+        "City": "Vitet",
+        "ICAO": "IUFO",
+        "Name": "UFO Base",
+        "Island": "Saint Barthelemy",
+        "IATA": "UFO",
+        "Stud Coords": "17001, -22569",
+        "Runways": [
+          {
+            "Studs": 300,
+            "Feet": 551,
+            "Name": "26/08",
+            "Headings": "256/76"
+          }
+        ],
+        "Geo Coords": "N41 50.8  E000 05.1"
+      }
+    ],
+    "Name": "Saint Barthelemy"
+  },
+  {
+    "Airports": [
+      {
+        "City": "Sauthamptona",
+        "ICAO": "ISAU",
+        "Name": "Sauthamptona Airport",
+        "Island": "Sauthamptona",
+        "IATA": "SAU",
+        "Stud Coords": "-38167, 9725",
+        "Runways": [
+          {
+            "Studs": 1390,
+            "Feet": 2554,
+            "Name": "26/08",
+            "Headings": "261/81"
+          }
+        ],
+        "Geo Coords": "N41 41.0  W000 11.5"
+      }
+    ],
+    "Name": "Sauthamptona"
+  },
+  {
+    "Airports": [
+      {
+        "City": "Chora",
+        "ICAO": "ISKP",
+        "Name": "Skopelos Airfield",
+        "Island": "Skopelos",
+        "IATA": "SKO",
+        "Stud Coords": "33640, -4904",
+        "Runways": [
+          {
+            "Studs": 346,
+            "Feet": 636,
+            "Name": "23/05",
+            "Headings": "231/51"
+          }
+        ],
+        "Geo Coords": "N41 45.5  E000 10.2"
+      }
+    ],
+    "Name": "Skopelos"
+  }
+]
