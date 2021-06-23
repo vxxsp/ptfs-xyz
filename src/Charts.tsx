@@ -1,16 +1,35 @@
 import { useState } from 'react';
-import { Alert, Button, Modal } from 'react-bootstrap';
+import {
+  Alert,
+  Button,
+  ButtonGroup,
+  Modal,
+  ToggleButton,
+} from 'react-bootstrap';
 import { ButtonTooltip } from './components/ButtonTooltip';
 import Island from './Island';
 import islands from './islands.json';
 import './charts.css';
+import { useCookies } from 'react-cookie';
 
 const Charts = () => {
+  const [cookies, setCookie] = useCookies(['chart-dark-mode']);
+  const [chartDark, setChartDark] = useState(
+    cookies['chart-dark-mode'] === 'true'
+  );
   const [ModalShow, setModalShow] = useState(false);
   const closeModal = () => setModalShow(false);
   const showModal = () => setModalShow(true);
   const [rotated, rotate] = useState(false);
   const [chart, setChart] = useState('');
+
+  const changeChartDark = (str: string) => {
+    console.log(str);
+    setCookie('chart-dark-mode', str === '1');
+    setChartDark(str === '1');
+  };
+
+  const dark = chartDark ? ' dark' : '';
 
   const filteredIslands = (islands as Island[]).filter(
     (island) => island.Airports.filter((airport) => airport.ICAO).length
@@ -35,14 +54,40 @@ const Charts = () => {
   const pChart = () => nChart(false);
 
   const openChart = () => {
-    window.open(`/charts/${chart} Ground Chart.png`);
+    window.open(`/charts/full${dark}/${chart} Ground Chart.png`);
   };
 
   return (
     <>
       <div className="margined">
         <Alert variant="dark">
-          <h3>These charts are not yet released!</h3>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <h3 style={{ display: 'inline' }}>
+              These charts are not yet released!
+            </h3>
+            <ButtonGroup toggle>
+              <ToggleButton
+                type="radio"
+                variant="secondary"
+                name="radio"
+                value={0}
+                checked={!chartDark}
+                onChange={(e) => changeChartDark(e.currentTarget.value)}
+              >
+                Light
+              </ToggleButton>
+              <ToggleButton
+                type="radio"
+                variant="secondary"
+                name="radio"
+                value={1}
+                checked={chartDark}
+                onChange={(e) => changeChartDark(e.currentTarget.value)}
+              >
+                Dark
+              </ToggleButton>
+            </ButtonGroup>
+          </div>
           <h5>So don't use these for ATC 24 (yet)</h5>
           This is just a beta preview of the charts for feedback. Please message
           HotDog#6400 on Discord if you have any feedback or notice any mistakes
@@ -63,7 +108,7 @@ const Charts = () => {
                   <h4 style={{ display: 'inline' }}> {airport.Name}</h4>
                   <img
                     className="thumbnail"
-                    src={`/charts/preview/${airport.ICAO} Ground Chart.png`}
+                    src={`/charts/thumb${dark}/${airport.ICAO} Ground Chart.png`}
                     width="100%"
                     alt={`Airport ground chart for the airport ${airport.ICAO}`}
                     onClick={() => {
@@ -78,11 +123,17 @@ const Charts = () => {
           </div>
         ))}
       </div>
-      <Modal show={ModalShow} onHide={closeModal} size="lg" centered>
+      <Modal
+        show={ModalShow}
+        onHide={closeModal}
+        size="lg"
+        centered
+        dialogClassName={chartDark ? 'dark-modal' : ''}
+      >
         <Modal.Body>
-          <a href={`/charts/${chart} Ground Chart.png`}>
+          <a href={`/charts/full${dark}/${chart} Ground Chart.png`}>
             <img
-              src={`/charts/preview/${chart} Ground Chart.png`}
+              src={`/charts/thumb${dark}/${chart} Ground Chart.png`}
               alt={`Airport ground chart for the airport ${chart}`}
               width="100%"
               style={{ transform: rotated ? 'rotate(90deg)' : undefined }}
