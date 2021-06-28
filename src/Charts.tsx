@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 import {
   Alert,
   Button,
   ButtonGroup,
+  Card,
   Modal,
   ToggleButton,
 } from 'react-bootstrap';
@@ -17,11 +18,16 @@ const Charts = () => {
   const [chartDark, setChartDark] = useState(
     cookies['chart-dark-mode'] === 'true'
   );
+  const [chart, setChart] = useState('');
   const [ModalShow, setModalShow] = useState(false);
   const closeModal = () => setModalShow(false);
-  const showModal = () => setModalShow(true);
+
+  const showModal = (ICAO: string) => {
+    setModalShow(true);
+    window.location.hash = ICAO;
+  };
+
   const [rotated, rotate] = useState(false);
-  const [chart, setChart] = useState('');
 
   const changeChartDark = (str: string) => {
     console.log(str);
@@ -48,7 +54,9 @@ const Charts = () => {
     if (newIndex < 0) newIndex = length - 1;
     else if (newIndex >= length) newIndex = 0;
 
-    setChart(charts[newIndex]);
+    const newChart = charts[newIndex];
+    window.location.hash = newChart;
+    setChart(newChart);
   };
 
   const pChart = () => nChart(false);
@@ -96,15 +104,36 @@ const Charts = () => {
           The taxiway lettering not matching the ones in game is not a mistake;
           Orange will change the layout in game to match these ones.
         </Alert>
-      </div>
-      <div className="margined">
+        <Card bg="dark" style={{ width: '18rem' }}>
+          <Card.Body>
+            <Card.Title>Navigation</Card.Title>
+            <Card.Text as="ol">
+              {filteredIslands.map((island) => (
+                <li key={island.Name}>
+                  <a href={`#${island.Name}`}>{island.Name}</a>
+                  <ol>
+                    {island.Airports.map((airport) => (
+                      // @ts-ignore
+                      <li key={airport.ICAO} type="i">
+                        <a href={`#${airport.ICAO}`}>{airport.Name}</a>
+                      </li>
+                    ))}
+                  </ol>
+                </li>
+              ))}
+            </Card.Text>
+          </Card.Body>
+        </Card>
+        <br />
         {filteredIslands.map((island) => (
-          <div key={island.Name}>
-            <h3>{island.Name}</h3>
+          <Fragment key={island.Name}>
+            <h3 id={island.Name}>{island.Name}</h3>
             <div className="chart-grid">
               {island.Airports.map((airport) => (
                 <div key={airport.ICAO}>
-                  <h6 style={{ display: 'inline' }}>{airport.ICAO}</h6>
+                  <h6 style={{ display: 'inline' }} id={airport.ICAO}>
+                    {airport.ICAO}
+                  </h6>
                   <h4 style={{ display: 'inline' }}> {airport.Name}</h4>
                   <img
                     className="thumbnail"
@@ -113,14 +142,14 @@ const Charts = () => {
                     alt={`Airport ground chart for the airport ${airport.ICAO}`}
                     onClick={() => {
                       setChart(airport.ICAO as string);
-                      showModal();
+                      showModal(airport.ICAO as string);
                     }}
                   />
                 </div>
               ))}
             </div>
             <br />
-          </div>
+          </Fragment>
         ))}
       </div>
       <Modal
