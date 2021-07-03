@@ -102,7 +102,6 @@ const Home = () => {
               carousel={PTFSCarousel}
             />
           </Tab>
-
           <Tab eventKey="ptrs" title="Pilot Training Rescue Squadron">
             <GameTab
               name="Pilot Training Rescue Squadron"
