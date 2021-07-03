@@ -7,10 +7,9 @@ import {
   Modal,
   ToggleButton,
 } from 'react-bootstrap';
-import { ButtonTooltip } from './components/ButtonTooltip';
-import Island from './Island';
-import islands from './islands.json';
-import './charts.css';
+import { ButtonTooltip } from '../components/ButtonTooltip';
+import Island from '../Island';
+import islands from '../islands.json';
 import { useCookies } from 'react-cookie';
 
 const Charts = () => {
@@ -193,4 +192,4 @@ const Charts = () => {
   );
 };
 
-export { Charts };
+export default Charts;
