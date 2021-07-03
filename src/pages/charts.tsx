@@ -1,4 +1,6 @@
 import { useState, Fragment } from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import {
   Alert,
   Button,
@@ -66,6 +68,7 @@ const Charts = () => {
 
   return (
     <>
+      <Header />
       <div className="margined">
         <Alert variant="dark">
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -188,6 +191,7 @@ const Charts = () => {
           </Button>
         </Modal.Footer>
       </Modal>
+      <Footer />
     </>
   );
 };

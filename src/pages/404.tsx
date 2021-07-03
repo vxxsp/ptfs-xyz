@@ -1,24 +1,30 @@
-import { Component } from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import { Button, Col, Container } from 'react-bootstrap';
+import Link from 'next/link';
 
 const NoMatch = () => {
   return (
-    <Container>
-      <Col>
-        <h1>404</h1>
-        <p>Page not found.</p>
-        <Button variant="dark">
-          <a href="/" style={{ color: 'white' }}>
-            Home
-          </a>
-        </Button>{' '}
-        <Button variant="dark">
-          <a href="/charts" style={{ color: 'white' }}>
-            Charts
-          </a>
-        </Button>
-      </Col>
-    </Container>
+    <>
+      <Header />
+      <Container>
+        <Col>
+          <h1>404</h1>
+          <p>Page not found.</p>
+          <Button variant="dark">
+            <Link href="/" passHref>
+              <a style={{ color: 'white' }}>Home</a>
+            </Link>
+          </Button>{' '}
+          <Button variant="dark">
+            <Link href="/charts" passHref>
+              <a style={{ color: 'white' }}>Charts</a>
+            </Link>
+          </Button>
+        </Col>
+      </Container>
+      <Footer />
+    </>
   );
 };
 

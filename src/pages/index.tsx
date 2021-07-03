@@ -1,4 +1,5 @@
-import { Component } from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import {
   Container,
   Row,
@@ -88,6 +89,7 @@ const Home = () => {
 
   return (
     <>
+      <Header />
       <Container>
         <Tabs defaultActiveKey="ptfs">
           <Tab eventKey="ptfs" title="Pilot Training Flight Simulator">
@@ -119,6 +121,7 @@ const Home = () => {
           </Tab>
         </Tabs>
       </Container>
+      <Footer />
     </>
   );
 };
