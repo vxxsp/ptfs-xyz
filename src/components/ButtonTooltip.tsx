@@ -12,18 +12,16 @@ const ButtonTooltip = ({
   text: string;
   tooltip: string;
   nodelay?: boolean;
-}) => {
-  return (
-    <OverlayTrigger
-      placement="top"
-      delay={{ show: nodelay ? 0 : 500, hide: 0 }}
-      overlay={<Tooltip id={tooltip}>{tooltip}</Tooltip>}
-    >
-      <Button onClick={onClick} className={className}>
-        {text}
-      </Button>
-    </OverlayTrigger>
-  );
-};
+}) => (
+  <OverlayTrigger
+    placement="top"
+    delay={{ show: nodelay ? 0 : 500, hide: 0 }}
+    overlay={<Tooltip id={tooltip}>{tooltip}</Tooltip>}
+  >
+    <Button onClick={onClick} className={className}>
+      {text}
+    </Button>
+  </OverlayTrigger>
+);
 
 export { ButtonTooltip };

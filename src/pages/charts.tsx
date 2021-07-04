@@ -1,4 +1,6 @@
 import { useState, Fragment } from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import {
   Alert,
   Button,
@@ -7,10 +9,9 @@ import {
   Modal,
   ToggleButton,
 } from 'react-bootstrap';
-import { ButtonTooltip } from './components/ButtonTooltip';
-import Island from './Island';
-import islands from './islands.json';
-import './charts.css';
+import { ButtonTooltip } from '../components/ButtonTooltip';
+import Island from '../Island';
+import islands from '../islands.json';
 import { useCookies } from 'react-cookie';
 
 const Charts = () => {
@@ -67,6 +68,7 @@ const Charts = () => {
 
   return (
     <>
+      <Header />
       <div className="margined">
         <Alert variant="dark">
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -189,8 +191,9 @@ const Charts = () => {
           </Button>
         </Modal.Footer>
       </Modal>
+      <Footer />
     </>
   );
 };
 
-export { Charts };
+export default Charts;
