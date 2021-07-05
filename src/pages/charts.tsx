@@ -15,7 +15,7 @@ import type Island from '../Island';
 import islands from '../islands.json';
 import { useCookies } from 'react-cookie';
 
-const Charts = ({ chartdarkmode }: { chartdarkmode: boolean }) => {
+const Charts = ({ chartdarkmode = false }: { chartdarkmode: boolean }) => {
   const [chart, setChart] = useState('');
   const [rotated, rotate] = useState(false);
   const [ModalShow, setModalShow] = useState(false);
