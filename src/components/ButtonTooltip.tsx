@@ -24,4 +24,4 @@ const ButtonTooltip = ({
   </OverlayTrigger>
 );
 
-export { ButtonTooltip };
+export default ButtonTooltip;

@@ -95,9 +95,9 @@ const Home = () => {
           <Tab eventKey="ptfs" title="Pilot Training Flight Simulator">
             <GameTab
               name="Pilot Training Flight Simulator"
-              description={`Welcome to Pilot Training, where you can fly a
-                wide range of different aircraft ranging from the mighty A380,
-                to the adorable Piper Cub.`}
+              description="Welcome to Pilot Training, where you can fly a wide
+                range of different aircraft ranging from the mighty A380, to
+                the adorable Piper Cub."
               id={20321167}
               carousel={PTFSCarousel}
             />
@@ -105,15 +105,15 @@ const Home = () => {
           <Tab eventKey="ptrs" title="Pilot Training Rescue Squadron">
             <GameTab
               name="Pilot Training Rescue Squadron"
-              description={`Welcome to Pilot Training Rescue Squadron. The
-                aim of this game is for the team of rescuers to go out to
-                different islands, an oil rig, a damaged sail boat and a
-                stricken aircraft carrier to rescue the stranded players. They
-                do this using helicopters, planes and boats which can be
-                spawned at the Rescue Squadrons base. Once the stranded players
-                have been brought back to the base they can touch the main door
-                of the Rescue Squadron's building and they too will then become
-                a rescuer.`}
+              description="Welcome to Pilot Training Rescue Squadron. The aim
+                of this game is for the team of rescuers to go out to different
+                islands, an oil rig, a damaged sail boat and a stricken
+                aircraft carrier to rescue the stranded players. They do this
+                using helicopters, planes and boats which can be spawned at the
+                Rescue Squadrons base. Once the stranded players have been
+                brought back to the base they can touch the main door of the
+                Rescue Squadron's building and they too will then become a
+                rescuer."
               id={470170393}
               carousel={PTRSCarousel}
             />

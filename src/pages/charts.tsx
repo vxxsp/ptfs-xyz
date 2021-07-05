@@ -1,6 +1,8 @@
 import { useState, Fragment } from 'react';
+import { GetServerSideProps } from 'next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import ButtonTooltip from '../components/ButtonTooltip';
 import {
   Alert,
   Button,
@@ -9,32 +11,28 @@ import {
   Modal,
   ToggleButton,
 } from 'react-bootstrap';
-import { ButtonTooltip } from '../components/ButtonTooltip';
-import Island from '../Island';
+import type Island from '../Island';
 import islands from '../islands.json';
 import { useCookies } from 'react-cookie';
 
-const Charts = () => {
-  const [cookies, setCookie] = useCookies(['chart-dark-mode']);
-  const [chartDark, setChartDark] = useState(
-    cookies['chart-dark-mode'] === 'true'
-  );
+const Charts = ({ chartdarkmode = false }: { chartdarkmode: boolean }) => {
   const [chart, setChart] = useState('');
+  const [rotated, rotate] = useState(false);
   const [ModalShow, setModalShow] = useState(false);
-  const closeModal = () => setModalShow(false);
+  const [chartDark, setChartDark] = useState(chartdarkmode);
+  const [_, setCookie] = useCookies(['chart-dark-mode']);
 
+  const closeModal = () => setModalShow(false);
   const showModal = (ICAO: string) => {
     setModalShow(true);
     window.location.hash = ICAO;
   };
 
-  const [rotated, rotate] = useState(false);
-
-  const changeChartDark = (str: string) => {
-    console.log(str);
-    setCookie('chart-dark-mode', str === '1');
-    setChartDark(str === '1');
+  const goDark = (dark = true) => {
+    setChartDark(dark);
+    setCookie('chart-dark-mode', Number(dark));
   };
+  const goLight = () => goDark(false);
 
   const dark = chartDark ? ' dark' : '';
 
@@ -82,7 +80,7 @@ const Charts = () => {
                 name="radio"
                 value={0}
                 checked={!chartDark}
-                onChange={(e) => changeChartDark(e.currentTarget.value)}
+                onChange={() => goLight()}
               >
                 Light
               </ToggleButton>
@@ -92,7 +90,7 @@ const Charts = () => {
                 name="radio"
                 value={1}
                 checked={chartDark}
-                onChange={(e) => changeChartDark(e.currentTarget.value)}
+                onChange={() => goDark()}
               >
                 Dark
               </ToggleButton>
@@ -197,3 +195,11 @@ const Charts = () => {
 };
 
 export default Charts;
+
+export const getServerSideProps: GetServerSideProps = async ({
+  req: { cookies },
+}) => {
+  return {
+    props: { chartdarkmode: cookies['chart-dark-mode'] === '1' },
+  };
+};
