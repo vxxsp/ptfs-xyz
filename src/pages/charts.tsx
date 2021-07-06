@@ -1,5 +1,5 @@
 import { useState, Fragment } from 'react';
-import { GetServerSideProps } from 'next';
+import type { GetServerSideProps } from 'next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Alert, ButtonGroup, Card, ToggleButton } from 'react-bootstrap';
