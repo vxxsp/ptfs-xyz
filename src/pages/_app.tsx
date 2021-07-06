@@ -3,6 +3,7 @@ import Head from 'next/head';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/index.css';
 import '../styles/charts.css';
+import 'react-awesome-lightbox/build/style.css';
 
 const App = ({ Component, pageProps }: AppProps) => (
   <>
