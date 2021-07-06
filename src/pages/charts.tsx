@@ -1,6 +1,5 @@
 import { useState, Fragment } from 'react';
 import { GetServerSideProps } from 'next';
-import Image from 'next/image';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Alert, ButtonGroup, Card, ToggleButton } from 'react-bootstrap';
@@ -109,11 +108,10 @@ const Charts = ({ chartdarkmode = false }: { chartdarkmode: boolean }) => {
                     {airport.ICAO}
                   </h6>
                   <h4 style={{ display: 'inline' }}> {airport.Name}</h4>
-                  <Image
+                  <img
                     className="thumbnail"
                     src={`/charts/${dark}/${airport.ICAO} Ground Chart.png`}
-                    width={300}
-                    height={424}
+                    width="100%"
                     alt={`Airport ground chart for the airport ${airport.ICAO}`}
                     onClick={() => {
                       showLightbox(airport.ICAO as string);
