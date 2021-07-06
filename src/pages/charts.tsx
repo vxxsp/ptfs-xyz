@@ -2,31 +2,17 @@ import { useState, Fragment } from 'react';
 import { GetServerSideProps } from 'next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import ButtonTooltip from '../components/ButtonTooltip';
-import {
-  Alert,
-  Button,
-  ButtonGroup,
-  Card,
-  Modal,
-  ToggleButton,
-} from 'react-bootstrap';
+import { Alert, ButtonGroup, Card, ToggleButton } from 'react-bootstrap';
 import type Island from '../Island';
 import islands from '../islands.json';
+import Lightbox from 'react-awesome-lightbox';
 import { useCookies } from 'react-cookie';
 
 const Charts = ({ chartdarkmode = false }: { chartdarkmode: boolean }) => {
-  const [chart, setChart] = useState('');
-  const [rotated, rotate] = useState(false);
-  const [ModalShow, setModalShow] = useState(false);
+  const [lightboxEnabled, setLightbox] = useState(false);
+  const [lighboxIdx, setLightboxIdx] = useState(0);
   const [chartDark, setChartDark] = useState(chartdarkmode);
   const [_, setCookie] = useCookies(['chart-dark-mode']);
-
-  const closeModal = () => setModalShow(false);
-  const showModal = (ICAO: string) => {
-    setModalShow(true);
-    window.location.hash = ICAO;
-  };
 
   const goDark = (dark = true) => {
     setChartDark(dark);
@@ -45,23 +31,11 @@ const Charts = ({ chartdarkmode = false }: { chartdarkmode: boolean }) => {
     .flat()
     .map((airport) => airport.ICAO) as string[];
 
-  const nChart = (next = true) => {
-    const index = charts.indexOf(chart);
-    const length = charts.length;
-    let newIndex = index + (next ? 1 : -1);
-
-    if (newIndex < 0) newIndex = length - 1;
-    else if (newIndex >= length) newIndex = 0;
-
-    const newChart = charts[newIndex];
-    window.location.hash = newChart;
-    setChart(newChart);
-  };
-
-  const pChart = () => nChart(false);
-
-  const openChart = () => {
-    window.open(`/charts/full${dark}/${chart} Ground Chart.png`);
+  const showLightbox = (airportCode: string) => {
+    const idx = charts.indexOf(airportCode);
+    window.location.hash = airportCode;
+    setLightboxIdx(idx);
+    setLightbox(true);
   };
 
   return (
@@ -69,33 +43,7 @@ const Charts = ({ chartdarkmode = false }: { chartdarkmode: boolean }) => {
       <Header />
       <div className="margined">
         <Alert variant="dark">
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <h3 style={{ display: 'inline' }}>
-              These charts are not yet released!
-            </h3>
-            <ButtonGroup toggle>
-              <ToggleButton
-                type="radio"
-                variant="secondary"
-                name="radio"
-                value={0}
-                checked={!chartDark}
-                onChange={() => goLight()}
-              >
-                Light
-              </ToggleButton>
-              <ToggleButton
-                type="radio"
-                variant="secondary"
-                name="radio"
-                value={1}
-                checked={chartDark}
-                onChange={() => goDark()}
-              >
-                Dark
-              </ToggleButton>
-            </ButtonGroup>
-          </div>
+          <h3>These charts are not yet released!</h3>
           <h5>So don't use these for ATC 24 (yet)</h5>
           This is just a beta preview of the charts for feedback. Please message
           HotDog#6400 on Discord if you have any feedback or notice any mistakes
@@ -106,7 +54,33 @@ const Charts = ({ chartdarkmode = false }: { chartdarkmode: boolean }) => {
         </Alert>
         <Card bg="dark" style={{ width: '18rem' }}>
           <Card.Body>
-            <Card.Title>Navigation</Card.Title>
+            <Card.Title
+              style={{ display: 'flex', justifyContent: 'space-between' }}
+            >
+              Navigation
+              <ButtonGroup toggle>
+                <ToggleButton
+                  type="radio"
+                  variant="secondary"
+                  name="radio"
+                  value={0}
+                  checked={!chartDark}
+                  onChange={() => goLight()}
+                >
+                  Light
+                </ToggleButton>
+                <ToggleButton
+                  type="radio"
+                  variant="secondary"
+                  name="radio"
+                  value={1}
+                  checked={chartDark}
+                  onChange={() => goDark()}
+                >
+                  Dark
+                </ToggleButton>
+              </ButtonGroup>
+            </Card.Title>
             <Card.Text as="ol">
               {filteredIslands.map((island) => (
                 <li key={island.Name}>
@@ -141,8 +115,7 @@ const Charts = ({ chartdarkmode = false }: { chartdarkmode: boolean }) => {
                     width="100%"
                     alt={`Airport ground chart for the airport ${airport.ICAO}`}
                     onClick={() => {
-                      setChart(airport.ICAO as string);
-                      showModal(airport.ICAO as string);
+                      showLightbox(airport.ICAO as string);
                     }}
                   />
                 </div>
@@ -152,43 +125,19 @@ const Charts = ({ chartdarkmode = false }: { chartdarkmode: boolean }) => {
           </Fragment>
         ))}
       </div>
-      <Modal
-        show={ModalShow}
-        onHide={closeModal}
-        size="lg"
-        centered
-        dialogClassName={chartDark ? 'dark-modal' : ''}
-      >
-        <Modal.Body>
-          <a href={`/charts/full${dark}/${chart} Ground Chart.png`}>
-            <img
-              src={`/charts/thumb${dark}/${chart} Ground Chart.png`}
-              alt={`Airport ground chart for the airport ${chart}`}
-              width="100%"
-              style={{ transform: rotated ? 'rotate(90deg)' : undefined }}
-            />
-          </a>
-        </Modal.Body>
-        <Modal.Footer>
-          <ButtonTooltip onClick={pChart} text="<" tooltip="Previous Chart" />
-          <ButtonTooltip
-            onClick={() => {
-              rotate(!rotated);
-            }}
-            text="⟳"
-            tooltip="Rotate Chart (Experimental)"
-            nodelay
-            className="hide-on-portrait"
-          />
-          <ButtonTooltip onClick={nChart} text=">" tooltip="Next Chart" />
-          <Button variant="secondary" onClick={openChart}>
-            Open in New Tab
-          </Button>
-          <Button variant="danger" onClick={closeModal}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      {lightboxEnabled && (
+        <Lightbox
+          images={filteredIslands
+            .map((island) => island.Airports)
+            .flat()
+            .map((airport) => ({
+              url: `/charts/full${dark}/${airport.ICAO} Ground Chart.png`,
+              title: airport.Name,
+            }))}
+          onClose={() => setLightbox(false)}
+          startIndex={lighboxIdx}
+        />
+      )}
       <Footer />
     </>
   );
