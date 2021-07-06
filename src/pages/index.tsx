@@ -1,6 +1,5 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Image from 'next/image';
 import {
   Container,
   Row,
@@ -72,7 +71,7 @@ const Home = () => {
           <Carousel indicators={false}>
             {carousel.map((arr, i) => (
               <Carousel.Item key={i}>
-                <Image src={arr[0]} alt={arr[1]} width={445} height={250} />
+                <img src={arr[0]} alt={arr[1]} width="100%" />
               </Carousel.Item>
             ))}
           </Carousel>
