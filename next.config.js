@@ -7,7 +7,4 @@ module.exports = withPWA({
     dest: 'public',
     runtimeCaching,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
 });

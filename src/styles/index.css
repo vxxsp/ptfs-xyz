@@ -1,3 +1,7 @@
+.lb-open-lightbox {
+  overflow: hidden;
+}
+
 a.nav-item.nav-link.active {
   color: rgba(205, 205, 205) !important;
   background-color: #343a40 !important;

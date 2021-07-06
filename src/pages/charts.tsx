@@ -1,5 +1,6 @@
 import { useState, Fragment } from 'react';
-import type { GetServerSideProps } from 'next';
+import { GetServerSideProps } from 'next';
+import Image from 'next/image';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Alert, ButtonGroup, Card, ToggleButton } from 'react-bootstrap';
@@ -20,7 +21,7 @@ const Charts = ({ chartdarkmode = false }: { chartdarkmode: boolean }) => {
   };
   const goLight = () => goDark(false);
 
-  const dark = chartDark ? ' dark' : '';
+  const dark = chartDark ? 'dark' : 'light';
 
   const filteredIslands = (islands as Island[]).filter(
     (island) => island.Airports.filter((airport) => airport.ICAO).length
@@ -33,7 +34,6 @@ const Charts = ({ chartdarkmode = false }: { chartdarkmode: boolean }) => {
 
   const showLightbox = (airportCode: string) => {
     const idx = charts.indexOf(airportCode);
-    window.location.hash = airportCode;
     setLightboxIdx(idx);
     setLightbox(true);
   };
@@ -41,10 +41,10 @@ const Charts = ({ chartdarkmode = false }: { chartdarkmode: boolean }) => {
   return (
     <>
       <Header />
-      <div className="margined">
+      <div className={`margined${lightboxEnabled ? ' noscroll' : ''}`}>
         <Alert variant="dark">
           <h3>These charts are not yet released!</h3>
-          <h5>So don't use these for ATC 24 (yet)</h5>
+          <h5>So don&apos;t use these for ATC 24 (yet)</h5>
           This is just a beta preview of the charts for feedback. Please message
           HotDog#6400 on Discord if you have any feedback or notice any mistakes
           on these charts. Thank you.
@@ -109,10 +109,11 @@ const Charts = ({ chartdarkmode = false }: { chartdarkmode: boolean }) => {
                     {airport.ICAO}
                   </h6>
                   <h4 style={{ display: 'inline' }}> {airport.Name}</h4>
-                  <img
+                  <Image
                     className="thumbnail"
-                    src={`/charts/thumb${dark}/${airport.ICAO} Ground Chart.png`}
-                    width="100%"
+                    src={`/charts/${dark}/${airport.ICAO} Ground Chart.png`}
+                    width={300}
+                    height={424}
                     alt={`Airport ground chart for the airport ${airport.ICAO}`}
                     onClick={() => {
                       showLightbox(airport.ICAO as string);
@@ -131,11 +132,12 @@ const Charts = ({ chartdarkmode = false }: { chartdarkmode: boolean }) => {
             .map((island) => island.Airports)
             .flat()
             .map((airport) => ({
-              url: `/charts/full${dark}/${airport.ICAO} Ground Chart.png`,
+              url: `/charts/${dark}/${airport.ICAO} Ground Chart.png`,
               title: airport.Name,
             }))}
           onClose={() => setLightbox(false)}
           startIndex={lighboxIdx}
+          doubleClickZoom={0}
         />
       )}
       <Footer />
@@ -145,10 +147,8 @@ const Charts = ({ chartdarkmode = false }: { chartdarkmode: boolean }) => {
 
 export default Charts;
 
-export const getServerSideProps: GetServerSideProps = async ({
-  req: { cookies },
-}) => {
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   return {
-    props: { chartdarkmode: cookies['chart-dark-mode'] === '1' },
+    props: { chartdarkmode: req.cookies['chart-dark-mode'] === '1' },
   };
 };
