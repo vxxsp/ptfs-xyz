@@ -41,7 +41,7 @@ const Charts = ({ chartdarkmode = false }: { chartdarkmode: boolean }) => {
   return (
     <>
       <Header />
-      <div className="margined">
+      <div className={`margined${lightboxEnabled ? ' noscroll' : ''}`}>
         <Alert variant="dark">
           <h3>These charts are not yet released!</h3>
           <h5>So don&apos;t use these for ATC 24 (yet)</h5>
