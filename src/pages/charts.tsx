@@ -1,5 +1,6 @@
 import { useState, Fragment } from 'react';
-import { GetServerSideProps } from 'next';
+import type { GetServerSideProps } from 'next';
+import Head from 'next/head';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Alert, ButtonGroup, Card, ToggleButton } from 'react-bootstrap';
@@ -39,6 +40,29 @@ const Charts = ({ chartdarkmode = false }: { chartdarkmode: boolean }) => {
 
   return (
     <>
+      <Head>
+        <title>PTFS Charts | PTFS</title>
+        <meta name="title" content="Pilot Training Flight Simulator - Charts" />
+        <meta
+          property="og:title"
+          content="Pilot Training Flight Simulator - Charts"
+        />
+        <meta
+          name="description"
+          content="The official ground charts for Pilot Training Flight Simulator on Roblox."
+        />
+        <meta
+          property="og:description"
+          content="The official ground charts for Pilot Training Flight Simulator on Roblox."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="og:url" content="https://ptfs.xyz/charts" />
+        <meta
+          property="og:image"
+          content="/charts/light/IPPH Ground Chart.png"
+        />
+      </Head>
       <Header />
       <div className={`margined${lightboxEnabled ? ' noscroll' : ''}`}>
         <Alert variant="dark">
