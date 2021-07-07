@@ -1,5 +1,6 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Head from 'next/head';
 import {
   Container,
   Row,
@@ -89,6 +90,9 @@ const Home = () => {
 
   return (
     <>
+      <Head>
+        <title>Home - PTFS</title>
+      </Head>
       <Header />
       <Container>
         <Tabs defaultActiveKey="ptfs">
