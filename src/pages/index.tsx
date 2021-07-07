@@ -91,7 +91,24 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>Home - PTFS</title>
+        <title>Home | PTFS</title>
+        <meta name="title" content="Pilot Training Flight Simulator" />
+        <meta property="og:title" content="Pilot Training Flight Simulator" />
+        <meta
+          name="description"
+          content="A free-to-play open world flight simulator on Roblox."
+        />
+        <meta
+          property="og:description"
+          content="A free-to-play open world flight simulator on Roblox."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="og:url" content="https://ptfs.xyz/" />
+        <meta
+          property="og:image"
+          content="/carousel/edec81d06a58ecc39d967b96b6402be5.png"
+        />
       </Head>
       <Header />
       <Container>
